@@ -6,10 +6,25 @@
 <title>Prabin Karki | Public Health Officer and Epidemiologist</title>
 <meta name="description" content="Personal website of Prabin Karki, public health officer and epidemiologist in Nepal.">
 <style>
-:root{--bg:#f5f7f6;--card:#fff;--ink:#12262e;--mute:#566a72;--line:#dbe3e2;--acc:#0b5d63;--tint:#e3eeee;--sig:#c8821a;--on:#fff}
-@media(prefers-color-scheme:dark){:root{--bg:#0f1b20;--card:#16262c;--ink:#e6eef0;--mute:#9db0b6;--line:#26393f;--acc:#6fc3c8;--tint:#193338;--sig:#e3a443;--on:#0b1417}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+:root {
+  --bg: radial-gradient(circle at 50% 0%, #102a36 0%, #081116 70%);
+  --card: #16262c;
+  --ink: #e6eef0;
+  --mute: #9db0b6;
+  --line: #26393f;
+  --acc: #6fc3c8;
+  --tint: #193338;
+  --sig: #e3a443;
+  --on: #0b1417;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-attachment: fixed;
+  color: var(--ink);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
 h1{font-size:clamp(2.2rem,6vw,3.4rem)}h2{font-size:1.7rem}h3{font-size:1.1rem}
