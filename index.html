@@ -1,55 +1,478 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081116">
+
 <title>Prabin Karki | Public Health Professional</title>
-<meta name="description" content="Personal website of Prabin Karki, public health officer and epidemiologist in Nepal.">
+<meta name="description" content="Personal website of Prabin Karki, public health professional and epidemiology researcher in Nepal.">
+
 <style>
-:root{--bg:#081116;--card:#16262c;--ink:#e6eef0;--mute:#9db0b6;--line:#26393f;--acc:#6fc3c8;--tint:#193338;--sig:#e3a443;--on:#0b1417}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
-#tech-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
-h1{font-size:clamp(2.2rem,6vw,3.4rem)}h2{font-size:1.7rem}h3{font-size:1.1rem}
-p{margin:0 0 1em;max-width:68ch}a{color:var(--acc)}
-:focus-visible{outline:3px solid var(--sig);outline-offset:2px}
-.wrap{max-width:1000px;margin:auto;padding:0 1.25rem;position:relative;z-index:1}
-header{position:sticky;top:0;background:rgba(8,17,22,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.7rem;padding-bottom:.7rem;flex-wrap:wrap}
-.brand{font:700 1.2rem Georgia,serif;color:var(--ink);text-decoration:none}
-nav a{color:var(--mute);text-decoration:none;margin-left:1.2rem}
-nav a:hover{color:var(--acc)}
-section{padding:3rem 0;border-bottom:1px solid var(--line)}
-.hero{padding:4rem 0 3rem}
-.hero-grid{display:grid;grid-template-columns:280px 1fr;gap:2.5rem;align-items:center}
-.hero-grid img{width:100%;border-radius:12px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.3)}
-@media(max-width:700px){.hero-grid{grid-template-columns:1fr}.hero-grid img{max-width:260px}}
-.role{color:var(--acc);font-weight:600;margin-bottom:.4rem}
-.lead{font-size:1.15rem;color:var(--mute)}
-.row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
-.btn{display:inline-block;padding:.65rem 1.15rem;border-radius:8px;border:1.5px solid var(--acc);color:var(--acc);text-decoration:none;font-weight:600}
-.btn.pri{background:var(--acc);color:var(--on)}
-.btn:hover{filter:brightness(1.1)}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;list-style:none}
-.chips li{background:var(--tint);color:var(--acc);padding:.3rem .8rem;border-radius:99px;font-size:.9rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
-.item{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--sig);border-radius:8px;padding:1.1rem}
-.item .tag{color:var(--mute);font-size:.85rem;margin-bottom:.3rem}
-.item p{margin:0 0 .7rem}
-footer{padding:1.5rem 0;color:var(--mute);font-size:.9rem}
+:root {
+  --bg: #081116;
+  --card: rgba(22, 38, 44, 0.88);
+  --ink: #edf5f6;
+  --mute: #afc0c5;
+  --line: rgba(157, 176, 182, 0.2);
+  --acc: #78d1d3;
+  --tint: rgba(25, 51, 56, 0.88);
+  --sig: #f0b45b;
+  --on: #081116;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.75 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+#tech-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+a {
+  color: var(--acc);
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: #b1f0ef;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sig);
+  outline-offset: 4px;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 7vw, 5rem);
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.35rem);
+  margin: 0 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 0.2rem 0 0.65rem;
+}
+
+p {
+  max-width: 72ch;
+  margin: 0 0 1rem;
+}
+
+.wrap {
+  width: min(1100px, calc(100% - 2.5rem));
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8, 17, 22, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+
+header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 76px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font: 700 1.25rem Georgia, serif;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.brand span {
+  color: var(--acc);
+}
+
+nav {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--mute);
+  font-size: 0.94rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--acc);
+}
+
+/* General sections */
+
+section {
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero {
+  padding: clamp(4rem, 9vw, 7rem) 0 5rem;
+}
+
+/* Hero section */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 330px) 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.portrait-frame {
+  position: relative;
+  max-width: 330px;
+}
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid var(--sig);
+  border-radius: 22px;
+  opacity: 0.8;
+}
+
+.hero-grid img {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--acc);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--sig);
+}
+
+.role {
+  color: var(--acc);
+  font-weight: 650;
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
+}
+
+.lead {
+  font-size: clamp(1.08rem, 2vw, 1.3rem);
+  color: var(--mute);
+  max-width: 55ch;
+}
+
+.hero-note {
+  color: var(--mute);
+  font-size: 0.94rem;
+  margin-top: 1.2rem;
+}
+
+/* Buttons */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.7rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.78rem 1.15rem;
+  border-radius: 9px;
+  border: 1px solid var(--acc);
+  color: var(--acc);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn.pri {
+  background: var(--acc);
+  color: var(--on);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+/* About section */
+
+.section-intro {
+  color: var(--mute);
+  margin-bottom: 1.8rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-copy,
+.skills-panel {
+  background: rgba(8, 17, 22, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  backdrop-filter: blur(6px);
+}
+
+.skills-panel h3 {
+  margin-bottom: 1rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.chips li {
+  background: var(--tint);
+  border: 1px solid rgba(120, 209, 211, 0.16);
+  color: var(--acc);
+  padding: 0.35rem 0.8rem;
+  border-radius: 99px;
+  font-size: 0.88rem;
+}
+
+/* Portfolio cards */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin-top: 1.8rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  min-height: 245px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sig);
+  border-radius: 13px;
+  padding: 1.35rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(120, 209, 211, 0.45);
+}
+
+.item .tag {
+  color: var(--sig);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.item p {
+  color: var(--mute);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.item a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+/* Contact section */
+
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: rgba(22, 38, 44, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.contact-details p {
+  margin-bottom: 0.55rem;
+}
+
+.contact-label {
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+/* Footer */
+
+footer {
+  padding: 1.5rem 0 2rem;
+  color: var(--mute);
+  font-size: 0.88rem;
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive layout */
+
+@media (max-width: 850px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .wrap {
+    width: min(100% - 1.5rem, 1100px);
+  }
+
+  header .wrap {
+    padding: 0.8rem 0;
+  }
+
+  nav {
+    gap: 0.55rem 1rem;
+  }
+
+  nav a {
+    font-size: 0.88rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .portrait-frame {
+    max-width: 250px;
+    margin: 0 auto 1rem;
+  }
+
+  .hero-grid img {
+    aspect-ratio: 4 / 4.5;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn,
+  .item {
+    transition: none;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <canvas id="tech-canvas" aria-hidden="true"></canvas>
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#top">Prabin Karki</a>
-    <nav aria-label="Main">
-      <a href="#about">About me</a>
+    <a class="brand" href="#top">Prabin <span>Karki</span></a>
+
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
       <a href="cv.html">CV</a>
       <a href="resources.html">Resources</a>
@@ -60,173 +483,626 @@ footer{padding:1.5rem 0;color:var(--mute);font-size:.9rem}
 
 <main id="top">
   <div class="wrap">
+
+    <!-- Hero section -->
     <section class="hero">
       <div class="hero-grid">
-        <img src="prabin_teal.jpg" alt="Prabin Karki">
-        <div>
-          <p class="role">Public Health Professional</p>
-          <h1>Prabin Karki</h1>
-          <p class="lead">I am a public health professional, working where data, research, and policy meet.</p>
-          <div class="row">
-            <a class="btn pri" href="cv.html">View my CV</a>
-            <a class="btn" href="#portfolio">See my work</a>
-          </div>
+
+        <div class="portrait-frame">
+          <img src="prabin_teal.jpg" alt="Portrait of Prabin Karki">
         </div>
+
+        <div>
+          <p class="eyebrow">Public Health · Epidemiology · Research</p>
+          <p class="role">Public Health Professional</p>
+
+          <h1>Prabin Karki</h1>
+
+          <p class="lead">
+            I work at the intersection of public health data, research, and
+            policy—turning evidence into action to strengthen health systems
+            and improve population health.
+          </p>
+
+          <div class="row">
+            <a class="btn pri" href="cv.html">
+              Explore my CV <span aria-hidden="true">↗</span>
+            </a>
+
+            <a class="btn" href="#portfolio">
+              View selected work <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Based in Nepal · Interested in epidemiology of aging,
+            surveillance, and evidence-informed public health.
+          </p>
+        </div>
+
       </div>
     </section>
 
+    <!-- About section -->
     <section id="about">
-      <h2>About me</h2>
-      <p>I am a public health officer at the Epidemiology and Disease Control Division, Department of Health Services, Ministry of Health and Population, Government of Nepal. My work covers national policy and guideline drafting, surveillance, rapid response training, and coordination with federal, provincial, and local authorities.</p>
-      <p>My research focuses on aging epidemiology. I hold an MPH with Distinction from the Institute of Medicine, Tribhuvan University, and I review manuscripts for several public health and geriatrics journals.</p>
-      <ul class="chips" aria-label="Skills">
-        <li>R</li><li>SPSS</li><li>DHIS2</li><li>Kobo Toolbox</li><li>Epidemiology</li><li>Monitoring and evaluation</li>
-      </ul>
-    </section>
+      <p class="eyebrow">A little about me</p>
 
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <p>Selected research and national-level work.</p>
-      <div class="grid">
-        <article class="item">
-          <div class="tag">Research article, 2025</div>
-          <h3>Successful aging among older adults in Nepal</h3>
-          <p>A cross-sectional study of the factors associated with successful aging, published in BMC Geriatrics.</p>
-          <a href="https://doi.org/10.1186/s12877-025-06335-4" target="_blank" rel="noopener">Read the paper</a>
-        </article>
-        <article class="item">
-          <div class="tag">Research article, 2023</div>
-          <h3>Depressive symptoms in disability care homes</h3>
-          <p>A mixed-method study of persons with physical disabilities in Kathmandu district, published in PLOS Global Public Health.</p>
-          <a href="https://doi.org/10.1371/journal.pgph.0001461" target="_blank" rel="noopener">Read the paper</a>
-        </article>
-        <article class="item">
-          <div class="tag">Research article, 2024</div>
-          <h3>Dating violence among public health students</h3>
-          <p>A cross-sectional study in Kathmandu metropolitan city, published in BMJ Open.</p>
-          <a href="https://doi.org/10.1136/bmjopen-2023-081516" target="_blank" rel="noopener">Read the paper</a>
-        </article>
-        <article class="item">
-          <div class="tag">National document</div>
-          <h3>M&amp;E framework for epidemic management</h3>
-          <p>Led preparation of the monitoring and evaluation framework at the Epidemiology and Disease Control Division.</p>
-        </article>
-        <article class="item">
-          <div class="tag">National document</div>
-          <h3>Water quality surveillance packages</h3>
-          <p>Prepared reference packages to support water quality surveillance.</p>
-        </article>
-        <article class="item">
-          <div class="tag">Local plan, 2023</div>
-          <h3>Health contingency plan</h3>
-          <p>Developed the epidemic and disaster contingency plan for Budhanilkantha Municipality, Kathmandu.</p>
-        </article>
+      <h2>Connecting evidence, policy, and practice.</h2>
+
+      <p class="section-intro">
+        My work brings together applied epidemiology, public health
+        programmes, and research.
+      </p>
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+          <p>
+            I am a public health officer at the Epidemiology and Disease
+            Control Division, Department of Health Services, Ministry of
+            Health and Population, Government of Nepal. My work covers
+            national policy and guideline drafting, surveillance, rapid
+            response training, and coordination with federal, provincial,
+            and local authorities.
+          </p>
+
+          <p>
+            My research focuses on aging epidemiology. I hold an MPH with
+            Distinction from the Institute of Medicine, Tribhuvan University,
+            and I review manuscripts for several public health and
+            geriatrics journals.
+          </p>
+        </div>
+
+        <aside class="skills-panel">
+          <h3>Tools & areas of work</h3>
+
+          <ul class="chips" aria-label="Skills">
+            <li>R</li>
+            <li>SPSS</li>
+            <li>DHIS2</li>
+            <li>Kobo Toolbox</li>
+            <li>Epidemiology</li>
+            <li>Monitoring & evaluation</li>
+          </ul>
+        </aside>
+
       </div>
-      <p style="margin-top:1.5rem">The full list is on my <a href="cv.html">CV page</a>.</p>
     </section>
 
-    <section id="contact" style="border-bottom:0">
-      <h2>Contact</h2>
-      <p>Email me at <a href="mailto:prabinkarki8247@gmail.com">prabinkarki8247@gmail.com</a>. I am based in Kathmandu, Nepal.</p>
-      <p>ORCID: <a href="https://orcid.org/0000-0002-5884-1254" target="_blank" rel="noopener">0000-0002-5884-1254</a></p>
+    <!-- Portfolio section -->
+    <section id="portfolio">
+      <p class="eyebrow">Selected work</p>
+
+      <h2>Research & public health practice</h2>
+
+      <p class="section-intro">
+        A selection of research publications and technical contributions.
+      </p>
+
+      <div class="grid">
+
+        <article class="item">
+          <div class="tag">Research article · 2025</div>
+
+          <h3>Successful aging among older adults in Nepal</h3>
+
+          <p>
+            A cross-sectional study examining factors associated with
+            successful aging, published in <em>BMC Geriatrics</em>.
+          </p>
+
+          <a href="https://doi.org/10.1186/s12877-025-06335-4"
+             target="_blank" rel="noopener noreferrer">
+            Read the paper ↗
+          </a>
+        </article>
+
+        <article class="item">
+          <div class="tag">Research article · 2023</div>
+
+          <h3>Depressive symptoms in disability care homes</h3>
+
+          <p>
+            A mixed-methods study of people with physical disabilities in
+            Kathmandu District, published in <em>PLOS Global Public Health</em>.
+          </p>
+
+          <a href="https://doi.org/10.1371/journal.pgph.0001461"
+             target="_blank" rel="noopener noreferrer">
+            Read the paper ↗
+          </a>
+        </article>
+
+        <article class="item">
+          <div class="tag">Research article · 2024</div>
+
+          <h3>Dating violence among public health students</h3>
+
+          <p>
+            A cross-sectional study conducted in Kathmandu Metropolitan City,
+            published in <em>BMJ Open</em>.
+          </p>
+
+          <a href="https://doi.org/10.1136/bmjopen-2023-081516"
+             target="_blank" rel="noopener noreferrer">
+            Read the paper ↗
+          </a>
+        </article>
+
+        <article class="item">
+          <div class="tag">National technical document</div>
+
+          <h3>M&E framework for epidemic management</h3>
+
+          <p>
+            Led preparation of a monitoring and evaluation framework at the
+            Epidemiology and Disease Control Division.
+          </p>
+        </article>
+
+        <article class="item">
+          <div class="tag">Surveillance resource</div>
+
+          <h3>Water quality surveillance packages</h3>
+
+          <p>
+            Prepared reference packages to support drinking-water quality
+            surveillance.
+          </p>
+        </article>
+
+        <article class="item">
+          <div class="tag">Local plan · 2023</div>
+
+          <h3>Health contingency plan</h3>
+
+          <p>
+            Developed the epidemic and disaster contingency plan for
+            Budhanilkantha Municipality, Kathmandu.
+          </p>
+        </article>
+
+      </div>
+
+      <a class="text-link" href="cv.html">
+        Explore the full list on my CV page ↗
+      </a>
     </section>
+
+    <!-- Contact section -->
+    <section id="contact" style="border-bottom: 0">
+      <p class="eyebrow">Get in touch</p>
+
+      <h2>Let’s connect.</h2>
+
+      <div class="contact-card">
+
+        <div>
+          <p class="lead">
+            For research, public health, or professional opportunities,
+            feel free to reach out.
+          </p>
+        </div>
+
+        <div class="contact-details">
+          <p>
+            <span class="contact-label">Email</span><br>
+            <a href="mailto:prabinkarki8247@gmail.com">
+              prabinkarki8247@gmail.com
+            </a>
+          </p>
+
+          <p>
+            <span class="contact-label">ORCID</span><br>
+            <a href="https://orcid.org/0000-0002-5884-1254"
+               target="_blank" rel="noopener noreferrer">
+              0000-0002-5884-1254 ↗
+            </a>
+          </p>
+
+          <p>
+            <span class="contact-label">Location</span><br>
+            Kathmandu, Nepal
+          </p>
+        </div>
+
+      </div>
+    </section>
+
   </div>
 </main>
 
 <footer>
-  <div class="wrap">&copy; 2026 Prabin Karki. Kathmandu, Nepal.</div>
+  <div class="wrap">
+    <span>© 2026 Prabin Karki</span>
+    <span>Public health · Epidemiology · Research</span>
+  </div>
 </footer>
 
 <script>
 (function () {
-  var canvas = document.getElementById('tech-canvas');
-  var ctx = canvas.getContext('2d');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var width, height, dpr, particles = [], running = true;
-  var mouse = { x: -9999, y: -9999 };
-  var LINK = 130;
+  var cv = document.getElementById('tech-canvas');
+  var ctx = cv.getContext('2d');
 
-  function makeParticles() {
-    var count = Math.min(90, Math.max(30, Math.round(width * height / 22000)));
-    particles = [];
-    for (var i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.6,
-        vy: (Math.random() - 0.5) * 0.6,
-        r: Math.random() * 2 + 1
-      });
-    }
+  var off = document.createElement('canvas');
+  var octx = off.getContext('2d');
+
+  var reduce = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  var W, H, dpr;
+  var paths = [], pulses = [], chipAt = {};
+  var running = true;
+
+  var D = [
+    [1, 0],
+    [.7071, .7071],
+    [0, 1],
+    [-.7071, .7071],
+    [-1, 0],
+    [-.7071, -.7071],
+    [0, -1],
+    [.7071, -.7071]
+  ];
+
+  var ORANGE = ['#ff7a1a', '#ff9a2e', '#ffb347'];
+  var CYAN = '#22c3e6';
+
+  function rnd(a, b) {
+    return a + Math.random() * (b - a);
   }
 
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    makeParticles();
-    if (reduce) draw();
-  }
+  /* Circuit traces spreading out from the central chip */
+  function build() {
+    paths = [];
+    pulses = [];
 
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
+    var cx = W * (W > 800 ? 0.68 : 0.5);
+    var cy = H * 0.42;
+    var u = Math.min(W, H) / 900;
 
-      if (!reduce) {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-      }
+    chipAt = { x: cx, y: cy, u: u };
 
-      ctx.fillStyle = 'rgba(111,195,200,0.45)';
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
+    for (var k = 0; k < 8; k++) {
+      var trunks = 2 + Math.floor(Math.random() * 2);
 
-      for (var j = i + 1; j < particles.length; j++) {
-        var q = particles[j];
-        var dx = p.x - q.x, dy = p.y - q.y;
-        var d = Math.sqrt(dx * dx + dy * dy);
-        if (d < LINK) {
-          ctx.strokeStyle = 'rgba(111,195,200,' + (0.18 * (1 - d / LINK)) + ')';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.stroke();
+      for (var t = 0; t < trunks; t++) {
+        var col = Math.random() < 0.34
+          ? CYAN
+          : ORANGE[Math.floor(Math.random() * 3)];
+
+        var lanes = 1 + Math.floor(Math.random() * 3);
+        var steps = [];
+        var d = k;
+
+        for (var i = 0; i < 16; i++) {
+          steps.push([d, rnd(50, 170)]);
+          d = (k + Math.floor(rnd(-1, 2)) + 8) % 8;
+        }
+
+        var base = rnd(-30, 30) * u;
+        var nx = -D[k][1];
+        var ny = D[k][0];
+
+        for (var l = 0; l < lanes; l++) {
+          var lo = base + l * 9;
+
+          var px = cx + nx * lo + D[k][0] * 30 * u;
+          var py = cy + ny * lo + D[k][1] * 30 * u;
+
+          var pts = [[px, py]];
+          var len = [0];
+          var tot = 0;
+
+          for (var s = 0; s < steps.length; s++) {
+            var dx = D[steps[s][0]][0] * steps[s][1];
+            var dy = D[steps[s][0]][1] * steps[s][1];
+
+            px += dx;
+            py += dy;
+
+            tot += Math.hypot(dx, dy);
+
+            pts.push([px, py]);
+            len.push(tot);
+
+            if (
+              px < -60 || px > W + 60 ||
+              py < -60 || py > H + 60
+            ) {
+              break;
+            }
+          }
+
+          var p = {
+            pts: pts,
+            len: len,
+            tot: tot,
+            col: col,
+            w: l === 0 ? 1.8 : 1.1
+          };
+
+          paths.push(p);
+
+          if (Math.random() < 0.8) {
+            pulses.push({
+              p: p,
+              s: -rnd(0, tot),
+              v: rnd(1.2, 3)
+            });
+          }
         }
       }
-
-      var mx = p.x - mouse.x, my = p.y - mouse.y;
-      var md = Math.sqrt(mx * mx + my * my);
-      if (md < 160) {
-        ctx.strokeStyle = 'rgba(227,164,67,' + (0.35 * (1 - md / 160)) + ')';
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(mouse.x, mouse.y);
-        ctx.stroke();
-      }
     }
   }
 
-  function loop() {
-    if (running) draw();
-    requestAnimationFrame(loop);
+  /* Helper for drawing polygon shapes */
+  function poly(c, a) {
+    c.beginPath();
+    c.moveTo(a[0][0], a[0][1]);
+
+    for (var i = 1; i < a.length; i++) {
+      c.lineTo(a[i][0], a[i][1]);
+    }
+
+    c.closePath();
+  }
+
+  /* Glowing isometric microchip */
+  function chip(c, x, y, u) {
+    var w = 130 * u;
+    var h = 70 * u;
+    var t = 34 * u;
+
+    function top(f) {
+      return [
+        [x, y - h * f],
+        [x + w * f, y],
+        [x, y + h * f],
+        [x - w * f, y]
+      ];
+    }
+
+    function lerp(a, b, f) {
+      return [
+        a[0] + (b[0] - a[0]) * f,
+        a[1] + (b[1] - a[1]) * f
+      ];
+    }
+
+    var T = top(1);
+
+    c.shadowColor = '#ff7a1a';
+    c.shadowBlur = 24;
+
+    poly(c, [
+      T[3], T[2], T[1],
+      [T[1][0], T[1][1] + t],
+      [T[2][0], T[2][1] + t],
+      [T[3][0], T[3][1] + t]
+    ]);
+
+    c.fillStyle = '#16233a';
+    c.fill();
+
+    c.strokeStyle = '#ff7a1a';
+    c.lineWidth = 1.6;
+    c.stroke();
+
+    c.beginPath();
+    c.moveTo(T[2][0], T[2][1]);
+    c.lineTo(T[2][0], T[2][1] + t);
+    c.stroke();
+
+    poly(c, T);
+    c.fillStyle = '#1c3050';
+    c.fill();
+
+    c.shadowColor = '#4aa8e8';
+    c.shadowBlur = 10;
+    c.strokeStyle = '#5aa0d8';
+    c.lineWidth = 1.2;
+    c.stroke();
+
+    var P = top(0.55);
+
+    c.shadowColor = '#ffb347';
+    c.shadowBlur = 8;
+    c.strokeStyle = '#ffb347';
+    c.lineWidth = 1;
+
+    poly(c, P);
+    c.stroke();
+
+    c.globalAlpha = 0.6;
+    c.shadowBlur = 0;
+
+    for (var i = 1; i < 5; i++) {
+      var f = i / 5;
+
+      var a1 = lerp(P[0], P[1], f);
+      var b1 = lerp(P[3], P[2], f);
+
+      var a2 = lerp(P[0], P[3], f);
+      var b2 = lerp(P[1], P[2], f);
+
+      c.beginPath();
+      c.moveTo(a1[0], a1[1]);
+      c.lineTo(b1[0], b1[1]);
+
+      c.moveTo(a2[0], a2[1]);
+      c.lineTo(b2[0], b2[1]);
+
+      c.stroke();
+    }
+
+    c.globalAlpha = 1;
+  }
+
+  /* Draw the background traces and chip */
+  function renderStatic() {
+    octx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var g = octx.createLinearGradient(0, 0, W, H);
+
+    g.addColorStop(0, '#2b3b50');
+    g.addColorStop(0.45, '#101c2e');
+    g.addColorStop(1, '#070d18');
+
+    octx.fillStyle = g;
+    octx.fillRect(0, 0, W, H);
+
+    octx.lineJoin = 'round';
+    octx.lineCap = 'round';
+
+    paths.forEach(function (p) {
+      octx.beginPath();
+
+      p.pts.forEach(function (q, i) {
+        if (i) {
+          octx.lineTo(q[0], q[1]);
+        } else {
+          octx.moveTo(q[0], q[1]);
+        }
+      });
+
+      octx.strokeStyle = p.col;
+      octx.globalAlpha = 0.55;
+      octx.lineWidth = p.w;
+      octx.shadowColor = p.col;
+      octx.shadowBlur = 8;
+
+      octx.stroke();
+    });
+
+    octx.globalAlpha = 1;
+    octx.shadowBlur = 0;
+
+    chip(octx, chipAt.x, chipAt.y, chipAt.u);
+
+    octx.shadowBlur = 0;
+    octx.fillStyle = 'rgba(8,17,22,0.35)';
+    octx.fillRect(0, 0, W, H);
+  }
+
+  /* Find the position of a pulse along a circuit trace */
+  function pointAt(p, s) {
+    if (s < 0) {
+      return null;
+    }
+
+    if (s >= p.tot) {
+      return p.pts[p.pts.length - 1];
+    }
+
+    for (var i = 1; i < p.len.length; i++) {
+      if (p.len[i] >= s) {
+        var f = (s - p.len[i - 1]) /
+                (p.len[i] - p.len[i - 1]);
+
+        var a = p.pts[i - 1];
+        var b = p.pts[i];
+
+        return [
+          a[0] + (b[0] - a[0]) * f,
+          a[1] + (b[1] - a[1]) * f
+        ];
+      }
+    }
+
+    return p.pts[p.pts.length - 1];
+  }
+
+  /* Animated light pulses travelling along the traces */
+  function drawPulse(q) {
+    q.s += q.v;
+
+    if (q.s > q.p.tot + 70) {
+      q.s = -rnd(0, 300);
+      q.v = rnd(1.2, 3);
+    }
+
+    if (q.s < 0) {
+      return;
+    }
+
+    for (var i = 0; i < 12; i++) {
+      var pt = pointAt(q.p, q.s - i * 6);
+
+      if (!pt) {
+        continue;
+      }
+
+      ctx.globalAlpha = (1 - i / 12) * 0.9;
+      ctx.fillStyle = i === 0 ? '#ffffff' : q.p.col;
+      ctx.shadowColor = q.p.col;
+      ctx.shadowBlur = i < 2 ? 14 : 0;
+
+      ctx.beginPath();
+      ctx.arc(
+        pt[0],
+        pt[1],
+        2.4 * (1 - i / 14) + 0.4,
+        0,
+        Math.PI * 2
+      );
+
+      ctx.fill();
+    }
+
+    ctx.globalAlpha = 1;
+    ctx.shadowBlur = 0;
+  }
+
+  /* Animation loop */
+  function frame() {
+    if (running) {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.drawImage(off, 0, 0);
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      pulses.forEach(drawPulse);
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  /* Resize the canvas for the screen */
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    W = window.innerWidth;
+    H = window.innerHeight;
+
+    cv.width = off.width = W * dpr;
+    cv.height = off.height = H * dpr;
+
+    build();
+    renderStatic();
+
+    if (reduce) {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.drawImage(off, 0, 0);
+    }
   }
 
   window.addEventListener('resize', resize);
-  window.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; });
-  window.addEventListener('mouseout', function () { mouse.x = mouse.y = -9999; });
-  document.addEventListener('visibilitychange', function () { running = !document.hidden; });
+
+  document.addEventListener('visibilitychange', function () {
+    running = !document.hidden;
+  });
 
   resize();
-  if (!reduce) loop();
+
+  if (!reduce) {
+    frame();
+  }
 })();
 </script>
+
 </body>
 </html>
+```
