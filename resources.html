@@ -85,30 +85,14 @@ footer{padding:1.5rem 0;color:var(--mute);font-size:.9rem;border-top:1px solid v
 <footer><div class="wrap">&copy; 2026 Prabin Karki. Kathmandu, Nepal. Always check each advertisement on the organization’s own website before applying.</div></footer>
 
 <script>
-/* ===== EDIT HERE =====
-   VACANCIES: copy a line, change the details. deadline format is YYYY-MM-DD (leave "" if none).
-   Always link to the ORIGINAL advertisement and write only a short note.
-   OPTIONAL Google Sheet: publish a sheet as CSV (File > Share > Publish to web > CSV), paste the link below.
-   Sheet columns, in row 1: title, organization, location, type, deadline, url, note */
+/* ===== GOOGLE SHEET LINKS ===== */
 const SHEET_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTVsjpUwOQ9MeIoqpbZnZKxe-uSACQ6M1uohoNg0Rzg648ztQ4kPkhO59XyoHz6Vg/pub?output=csv";
-let VAC = [
-];
-/* RESOURCE MATERIALS: cat = category chip, kind = Link or PDF.
-   For your own PDFs, upload them to a folder named files in docs and use url:"files/my-document.pdf" */
 const MAT_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTVsjpUwOQ9MeIoqpbZnZKxe-uSACQ6M1uohoNg0Rzg648ztQ4kPkhO59XyoHz6Vg/pub?gid=721912458&single=true&output=csv";
-let MAT = [
-  async function grab(url){
- const rows=csv(await (await fetch(url)).text()),H=rows[0].map(x=>x.trim().toLowerCase());
- return rows.slice(1).map(r=>k=>(r[H.indexOf(k)]||"").trim()).filter(g=>g("title"));
-}
-async function load(){
- if(SHEET_CSV){try{const v=(await grab(SHEET_CSV)).map(g=>({title:g("title"),org:g("organization"),loc:g("location"),type:g("type")||"Other",deadline:g("deadline"),url:g("url"),note:g("note")}));if(v.length)VAC=v}catch(e){}}
- if(MAT_CSV){try{const m=(await grab(MAT_CSV)).map(g=>({title:g("title"),cat:g("category")||"Other",kind:g("type")||"Link",url:g("url"),desc:g("description")}));if(m.length)MAT=m}catch(e){}}
- vac();mat();tab(location.hash.slice(1));
-}
-load();
-  ];
-  
+
+/* Backup lists. Leave them empty, the sheets fill the page. */
+let VAC = [];
+let MAT = [];
+
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safe=u=>/^(https?:\/\/|files\/|[\w.\-\/]+\.(pdf|docx?|xlsx?))/i.test(u||"")?u:"";
@@ -153,13 +137,15 @@ function tab(id){if(id!=="materials")id="vacancies";
 document.querySelector(".tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(b)location.hash=b.dataset.tab});
 addEventListener("hashchange",()=>tab(location.hash.slice(1)));
 
-/* Optional Google Sheet */
+/* Google Sheets loader */
 function csv(t){const r=[];let w=[],c="",q=false;for(let i=0;i<t.length;i++){const h=t[i];if(q){if(h=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=h}else if(h=='"')q=true;else if(h==","){w.push(c);c=""}else if(h=="\n"||h=="\r"){if(h=="\r"&&t[i+1]=="\n")i++;w.push(c);r.push(w);w=[];c=""}else c+=h}if(c||w.length){w.push(c);r.push(w)}return r}
+async function grab(url){
+ const rows=csv(await (await fetch(url)).text()),H=rows[0].map(x=>x.trim().toLowerCase());
+ return rows.slice(1).map(r=>k=>(r[H.indexOf(k)]||"").trim()).filter(g=>g("title"));
+}
 async function load(){
- if(SHEET_CSV){try{const rows=csv(await (await fetch(SHEET_CSV)).text());const H=rows[0].map(x=>x.trim().toLowerCase());
-  const g=(r,k)=>(r[H.indexOf(k)]||"").trim();
-  const v=rows.slice(1).filter(r=>g(r,"title")).map(r=>({title:g(r,"title"),org:g(r,"organization"),loc:g(r,"location"),type:g(r,"type")||"Other",deadline:g(r,"deadline"),url:g(r,"url"),note:g(r,"note")}));
-  if(v.length)VAC=v}catch(e){}}
+ if(SHEET_CSV){try{const v=(await grab(SHEET_CSV)).map(g=>({title:g("title"),org:g("organization"),loc:g("location"),type:g("type")||"Other",deadline:g("deadline"),url:g("url"),note:g("note")}));if(v.length)VAC=v}catch(e){}}
+ if(MAT_CSV){try{const m=(await grab(MAT_CSV)).map(g=>({title:g("title"),cat:g("category")||"Other",kind:g("type")||"Link",url:g("url"),desc:g("description")}));if(m.length)MAT=m}catch(e){}}
  vac();mat();tab(location.hash.slice(1));
 }
 load();
