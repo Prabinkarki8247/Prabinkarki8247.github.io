@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources and Vacancies | Prabin Karki</title>
+<meta name="description" content="Public health job vacancies and resource materials shared by Prabin Karki.">
+<style>
+:root{--bg:#081116;--card:rgba(22,38,44,.93);--ink:#e6eef0;--mute:#9db0b6;--line:#26393f;--acc:#6fc3c8;--tint:#193338;--sig:#e3a443;--on:#0b1417}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+#tech-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,5vw,3rem)}h3{font-size:1.1rem;margin-bottom:.2em}
+p{margin:0 0 1em;max-width:68ch}a{color:var(--acc)}
+:focus-visible{outline:3px solid var(--sig);outline-offset:2px}
+.wrap{max-width:1000px;margin:auto;padding:0 1.25rem;position:relative;z-index:1}
+header{position:sticky;top:0;background:rgba(8,17,22,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.7rem;padding-bottom:.7rem;flex-wrap:wrap}
+.brand{font:700 1.2rem Georgia,serif;color:var(--ink);text-decoration:none}
+nav a{color:var(--mute);text-decoration:none;margin-left:1.2rem}nav a:hover,nav a.on{color:var(--acc)}
+.intro{padding:3rem 0 1rem}.lead{font-size:1.1rem;color:var(--mute)}
+.tabs{display:flex;gap:.5rem;border-bottom:1px solid var(--line);margin-bottom:1.2rem}
+.tab{background:none;border:0;border-bottom:3px solid transparent;color:var(--mute);font:inherit;font-weight:600;padding:.7rem 1.1rem;cursor:pointer}
+.tab.on{color:var(--acc);border-bottom-color:var(--sig)}
+.bar{display:flex;flex-wrap:wrap;gap:.7rem 1rem;align-items:center;margin-bottom:.8rem}
+input[type=search]{flex:1;min-width:220px;max-width:360px;font:inherit;padding:.6rem .9rem;border:1.5px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+label.chk{color:var(--mute);font-size:.95rem;display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.2rem}
+.chip{background:none;border:1.5px solid var(--line);color:var(--mute);padding:.3rem .9rem;border-radius:99px;font:inherit;font-size:.9rem;cursor:pointer}
+.chip.on{background:var(--acc);border-color:var(--acc);color:var(--on);font-weight:600}
+.count{color:var(--mute);font-size:.92rem;margin:0 0 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.1rem;padding-bottom:3rem}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--sig);border-radius:8px;padding:1.1rem;display:flex;flex-direction:column}
+.card.old{opacity:.55;border-top-color:var(--line)}
+.top{display:flex;justify-content:space-between;gap:.5rem;align-items:center;margin-bottom:.5rem}
+.tag{color:var(--mute);font-size:.82rem}
+.badge{font-size:.78rem;font-weight:700;padding:.12rem .55rem;border-radius:99px;background:var(--tint);color:var(--acc);white-space:nowrap}
+.badge.soon{background:var(--sig);color:var(--on)}
+.org{color:var(--acc);margin-bottom:.5rem;font-size:.95rem}
+.card p{font-size:.95rem;margin:0 0 .8rem}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap}
+.dl{color:var(--mute);font-size:.88rem}
+.btn{display:inline-block;padding:.45rem .95rem;border-radius:8px;border:1.5px solid var(--acc);color:var(--acc);text-decoration:none;font-weight:600;font-size:.92rem}
+.btn:hover{background:var(--acc);color:var(--on)}
+.empty{color:var(--mute);padding:1rem 0 3rem}
+footer{padding:1.5rem 0;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line);background:rgba(8,17,22,.7)}
+</style>
+</head>
+<body>
+<canvas id="tech-canvas" aria-hidden="true"></canvas>
+<header><div class="wrap">
+  <a class="brand" href="index.html">Prabin Karki</a>
+  <nav aria-label="Main"><a href="index.html#about">About me</a><a href="index.html#portfolio">Portfolio</a><a href="cv.html">CV</a><a href="resources.html" class="on" aria-current="page">Resources</a><a href="index.html#contact">Contact</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="intro">
+    <h1>Resources and vacancies</h1>
+    <p class="lead">Job openings in public health and handy materials for epidemiology, surveillance, and research.</p>
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab on" role="tab" data-tab="vacancies">Vacancies</button>
+    <button class="tab" role="tab" data-tab="materials">Resource materials</button>
+  </div>
+
+  <section id="vacancies">
+    <div class="bar">
+      <input type="search" id="vq" placeholder="Search vacancies (title, organization, place)" aria-label="Search vacancies">
+      <label class="chk"><input type="checkbox" id="hide" checked> Hide closed</label>
+    </div>
+    <div class="chips" id="vchips"></div>
+    <p class="count" id="vcount"></p>
+    <div class="grid" id="vlist"></div>
+  </section>
+
+  <section id="materials" hidden>
+    <div class="bar"><input type="search" id="mq" placeholder="Search materials" aria-label="Search materials"></div>
+    <div class="chips" id="mchips"></div>
+    <p class="count" id="mcount"></p>
+    <div class="grid" id="mlist"></div>
+  </section>
+</main>
+<footer><div class="wrap">&copy; 2026 Prabin Karki. Kathmandu, Nepal. Always check each advertisement on the organization’s own website before applying.</div></footer>
+
+<script>
+/* ===== EDIT HERE =====
+   VACANCIES: copy a line, change the details. deadline format is YYYY-MM-DD (leave "" if none).
+   Always link to the ORIGINAL advertisement and write only a short note.
+   OPTIONAL Google Sheet: publish a sheet as CSV (File > Share > Publish to web > CSV), paste the link below.
+   Sheet columns, in row 1: title, organization, location, type, deadline, url, note */
+const SHEET_CSV = "";
+let VAC = [
+ {title:"Example: replace with a real vacancy", org:"Example organization", loc:"Kathmandu", type:"NGO", deadline:"2026-12-31", url:"", note:"Delete this example line, then copy it to add your own.", example:true}
+];
+/* RESOURCE MATERIALS: cat = category chip, kind = Link or PDF.
+   For your own PDFs, upload them to a folder named files in docs and use url:"files/my-document.pdf" */
+const MAT = [
+ {title:"R for Data Science (2e)", cat:"Learning R", kind:"Link", url:"https://r4ds.hadley.nz", desc:"Free online book for learning data import, cleaning, visualisation and analysis in R."},
+ {title:"The Epidemiologist R Handbook", cat:"Learning R", kind:"Link", url:"https://epirhandbook.com", desc:"Practical R guide for applied epidemiology and public health, free to read."},
+ {title:"Quarto documentation", cat:"Learning R", kind:"Link", url:"https://quarto.org/docs/guide/", desc:"Guide to building reports, slides and websites from R code."},
+ {title:"DHIS2 documentation", cat:"Health information systems", kind:"Link", url:"https://docs.dhis2.org", desc:"Official user and implementation guides for the DHIS2 platform."},
+ {title:"KoboToolbox support center", cat:"Health information systems", kind:"Link", url:"https://support.kobotoolbox.org", desc:"How-to articles for building forms and collecting survey data."},
+ {title:"GBD Results tool", cat:"Data and tools", kind:"Link", url:"https://vizhub.healthdata.org/gbd-results/", desc:"Explore Global Burden of Disease estimates by country, cause and risk."},
+ {title:"OpenEpi", cat:"Data and tools", kind:"Link", url:"https://www.openepi.com", desc:"Free web-based calculators for common epidemiologic statistics."},
+ {title:"Epidemiology and Disease Control Division", cat:"Nepal public health", kind:"Link", url:"https://edcd.gov.np", desc:"Official site of Nepal’s EDCD with notices, guidelines and reports."},
+ {title:"Ministry of Health and Population", cat:"Nepal public health", kind:"Link", url:"https://mohp.gov.np", desc:"Official site with national health policies, plans and publications."}
+];
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safe=u=>/^(https?:\/\/|files\/|[\w.\-\/]+\.(pdf|docx?|xlsx?))/i.test(u||"")?u:"";
+const daysLeft=d=>{if(!d)return null;const e=new Date(d+"T23:59:59");return isNaN(e)?null:Math.ceil((e-new Date())/864e5)};
+const fmt=d=>new Date(d+"T00:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+
+function chips(box,list,cur,cb){box.innerHTML=["All"].concat(list).map(c=>`<button class="chip${c===cur?" on":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");box.onclick=e=>{const b=e.target.closest("[data-c]");if(b)cb(b.dataset.c)}}
+const uniq=a=>[...new Set(a.filter(Boolean))];
+
+/* Vacancies */
+let vt="All";
+function vac(){
+ const q=$("#vq").value.trim().toLowerCase(),hide=$("#hide").checked;
+ chips($("#vchips"),uniq(VAC.map(v=>v.type)),vt,c=>{vt=c;vac()});
+ const rows=VAC.map(v=>({v,d:daysLeft(v.deadline)}))
+  .filter(x=>(vt==="All"||x.v.type===vt)&&(!hide||x.d===null||x.d>=0)&&(!q||[x.v.title,x.v.org,x.v.loc,x.v.note].join(" ").toLowerCase().includes(q)))
+  .sort((a,b)=>(a.d===null)-(b.d===null)||(a.d<0)-(b.d<0)||(a.d-b.d));
+ $("#vcount").textContent=rows.length+(rows.length===1?" vacancy":" vacancies");
+ $("#vlist").innerHTML=rows.length?rows.map(({v,d})=>{
+  const closed=d!==null&&d<0;
+  const badge=v.example?`<span class="badge">Example</span>`:closed?`<span class="badge">Closed</span>`:d===null?`<span class="badge">Open until filled</span>`:`<span class="badge${d<=7?" soon":""}">${d===0?"Last day":d+" days left"}</span>`;
+  const u=safe(v.url);
+  return `<article class="card${closed?" old":""}"><div class="top"><span class="tag">${esc(v.type)}</span>${badge}</div><h3>${esc(v.title)}</h3><div class="org">${esc(v.org)}${v.loc?", "+esc(v.loc):""}</div>${v.note?`<p>${esc(v.note)}</p>`:""}<div class="foot"><span class="dl">${v.deadline?"Deadline: "+esc(fmt(v.deadline)):"No deadline listed"}</span>${u?`<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">View advertisement</a>`:""}</div></article>`}).join(""):`<p class="empty">No vacancies match right now. Check back soon, or untick “Hide closed”.</p>`;
+}
+$("#vq").addEventListener("input",vac);$("#hide").addEventListener("change",vac);
+
+/* Resource materials */
+let mt="All";
+function mat(){
+ const q=$("#mq").value.trim().toLowerCase();
+ chips($("#mchips"),uniq(MAT.map(m=>m.cat)),mt,c=>{mt=c;mat()});
+ const rows=MAT.filter(m=>(mt==="All"||m.cat===mt)&&(!q||[m.title,m.desc,m.cat].join(" ").toLowerCase().includes(q)));
+ $("#mcount").textContent=rows.length+(rows.length===1?" resource":" resources");
+ $("#mlist").innerHTML=rows.length?rows.map(m=>{const u=safe(m.url);return `<article class="card"><div class="top"><span class="tag">${esc(m.cat)}</span><span class="badge">${esc(m.kind||"Link")}</span></div><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="foot"><span></span>${u?`<a class="btn" href="${esc(u)}" target="_blank" rel="noopener"${m.kind==="PDF"?" download":""}>${m.kind==="PDF"?"Download":"Open"}</a>`:""}</div></article>`}).join(""):`<p class="empty">No resources match your search.</p>`;
+}
+$("#mq").addEventListener("input",mat);
+
+/* Tabs */
+function tab(id){if(id!=="materials")id="vacancies";
+ ["vacancies","materials"].forEach(t=>{$("#"+t).hidden=t!==id});
+ document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.tab===id));}
+document.querySelector(".tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(b)location.hash=b.dataset.tab});
+addEventListener("hashchange",()=>tab(location.hash.slice(1)));
+
+/* Optional Google Sheet */
+function csv(t){const r=[];let w=[],c="",q=false;for(let i=0;i<t.length;i++){const h=t[i];if(q){if(h=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=h}else if(h=='"')q=true;else if(h==","){w.push(c);c=""}else if(h=="\n"||h=="\r"){if(h=="\r"&&t[i+1]=="\n")i++;w.push(c);r.push(w);w=[];c=""}else c+=h}if(c||w.length){w.push(c);r.push(w)}return r}
+async function load(){
+ if(SHEET_CSV){try{const rows=csv(await (await fetch(SHEET_CSV)).text());const H=rows[0].map(x=>x.trim().toLowerCase());
+  const g=(r,k)=>(r[H.indexOf(k)]||"").trim();
+  const v=rows.slice(1).filter(r=>g(r,"title")).map(r=>({title:g(r,"title"),org:g(r,"organization"),loc:g(r,"location"),type:g(r,"type")||"Other",deadline:g(r,"deadline"),url:g(r,"url"),note:g(r,"note")}));
+  if(v.length)VAC=v}catch(e){}}
+ vac();mat();tab(location.hash.slice(1));
+}
+load();
+
+/* Animated circuit background */
+(function(){
+ var cv=$("#tech-canvas"),ctx=cv.getContext("2d"),off=document.createElement("canvas"),o=off.getContext("2d");
+ var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,W,H,dpr,paths=[],pulses=[],ch={},run=true;
+ var D=[[1,0],[.7071,.7071],[0,1],[-.7071,.7071],[-1,0],[-.7071,-.7071],[0,-1],[.7071,-.7071]],OR=["#ff7a1a","#ff9a2e","#ffb347"],CY="#22c3e6";
+ function r(a,b){return a+Math.random()*(b-a)}
+ function build(){paths=[];pulses=[];var cx=W*(W>800?.68:.5),cy=H*.42,u=Math.min(W,H)/900;ch={x:cx,y:cy,u:u};
+  for(var k=0;k<8;k++){var tr=2+Math.floor(Math.random()*2);
+   for(var t=0;t<tr;t++){var col=Math.random()<.34?CY:OR[Math.floor(Math.random()*3)],lanes=1+Math.floor(Math.random()*3),st=[],d=k;
+    for(var i=0;i<16;i++){st.push([d,r(50,170)]);d=(k+Math.floor(r(-1,2))+8)%8}
+    var base=r(-30,30)*u;
+    for(var l=0;l<lanes;l++){var lo=base+l*9,nx=-D[k][1],ny=D[k][0],px=cx+nx*lo+D[k][0]*30*u,py=cy+ny*lo+D[k][1]*30*u,pts=[[px,py]],len=[0],tot=0;
+     for(var s=0;s<st.length;s++){var dx=D[st[s][0]][0]*st[s][1],dy=D[st[s][0]][1]*st[s][1];px+=dx;py+=dy;tot+=Math.hypot(dx,dy);pts.push([px,py]);len.push(tot);if(px<-60||px>W+60||py<-60||py>H+60)break}
+     var p={pts:pts,len:len,tot:tot,col:col,w:l?1.1:1.8};paths.push(p);if(Math.random()<.8)pulses.push({p:p,s:-r(0,tot),v:r(1.2,3)})}}}}
+ function poly(c,a){c.beginPath();c.moveTo(a[0][0],a[0][1]);for(var i=1;i<a.length;i++)c.lineTo(a[i][0],a[i][1]);c.closePath()}
+ function chip(c,x,y,u){var w=130*u,h=70*u,t=34*u;
+  function top(f){return[[x,y-h*f],[x+w*f,y],[x,y+h*f],[x-w*f,y]]}
+  var T=top(1);c.shadowColor="#ff7a1a";c.shadowBlur=24;
+  poly(c,[T[3],T[2],T[1],[T[1][0],T[1][1]+t],[T[2][0],T[2][1]+t],[T[3][0],T[3][1]+t]]);c.fillStyle="#16233a";c.fill();c.strokeStyle="#ff7a1a";c.lineWidth=1.6;c.stroke();
+  poly(c,T);c.fillStyle="#1c3050";c.fill();c.shadowColor="#4aa8e8";c.shadowBlur=10;c.strokeStyle="#5aa0d8";c.lineWidth=1.2;c.stroke();
+  c.shadowColor="#ffb347";c.shadowBlur=8;c.strokeStyle="#ffb347";c.lineWidth=1;poly(c,top(.55));c.stroke();c.shadowBlur=0}
+ function stat(){o.setTransform(dpr,0,0,dpr,0,0);var g=o.createLinearGradient(0,0,W,H);g.addColorStop(0,"#2b3b50");g.addColorStop(.45,"#101c2e");g.addColorStop(1,"#070d18");o.fillStyle=g;o.fillRect(0,0,W,H);
+  o.lineJoin=o.lineCap="round";paths.forEach(function(p){o.beginPath();p.pts.forEach(function(q,i){i?o.lineTo(q[0],q[1]):o.moveTo(q[0],q[1])});o.strokeStyle=p.col;o.globalAlpha=.55;o.lineWidth=p.w;o.shadowColor=p.col;o.shadowBlur=8;o.stroke()});
+  o.globalAlpha=1;o.shadowBlur=0;chip(o,ch.x,ch.y,ch.u);o.shadowBlur=0;o.fillStyle="rgba(8,17,22,.45)";o.fillRect(0,0,W,H)}
+ function at(p,s){if(s<0)return null;if(s>=p.tot)return p.pts[p.pts.length-1];for(var i=1;i<p.len.length;i++)if(p.len[i]>=s){var f=(s-p.len[i-1])/(p.len[i]-p.len[i-1]),a=p.pts[i-1],b=p.pts[i];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]}return p.pts[p.pts.length-1]}
+ function pulse(q){q.s+=q.v;if(q.s>q.p.tot+70){q.s=-r(0,300);q.v=r(1.2,3)}if(q.s<0)return;
+  for(var i=0;i<12;i++){var pt=at(q.p,q.s-i*6);if(!pt)continue;ctx.globalAlpha=(1-i/12)*.9;ctx.fillStyle=i?q.p.col:"#fff";ctx.shadowColor=q.p.col;ctx.shadowBlur=i<2?14:0;ctx.beginPath();ctx.arc(pt[0],pt[1],2.4*(1-i/14)+.4,0,6.283);ctx.fill()}
+  ctx.globalAlpha=1;ctx.shadowBlur=0}
+ function frame(){if(run){ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(off,0,0);ctx.setTransform(dpr,0,0,dpr,0,0);pulses.forEach(pulse)}requestAnimationFrame(frame)}
+ function size(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=off.width=W*dpr;cv.height=off.height=H*dpr;build();stat();if(reduce){ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(off,0,0)}}
+ addEventListener("resize",size);document.addEventListener("visibilitychange",function(){run=!document.hidden});size();if(!reduce)frame();
+})();
+</script>
+</body>
+</html>
