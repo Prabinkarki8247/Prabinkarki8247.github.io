@@ -95,9 +95,19 @@ let VAC = [
 ];
 /* RESOURCE MATERIALS: cat = category chip, kind = Link or PDF.
    For your own PDFs, upload them to a folder named files in docs and use url:"files/my-document.pdf" */
-const MAT_CSV ="https://docs.google.com/spreadsheets/d/e/2PACX-1vTVsjpUwOQ9MeIoqpbZnZKxe-uSACQ6M1uohoNg0Rzg648ztQ4kPkhO59XyoHz6Vg/pub?gid=721912458&single=true&output=csv";
-let VAC = [
-];
+const MAT_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTVsjpUwOQ9MeIoqpbZnZKxe-uSACQ6M1uohoNg0Rzg648ztQ4kPkhO59XyoHz6Vg/pub?gid=721912458&single=true&output=csv";
+let MAT = [
+  async function grab(url){
+ const rows=csv(await (await fetch(url)).text()),H=rows[0].map(x=>x.trim().toLowerCase());
+ return rows.slice(1).map(r=>k=>(r[H.indexOf(k)]||"").trim()).filter(g=>g("title"));
+}
+async function load(){
+ if(SHEET_CSV){try{const v=(await grab(SHEET_CSV)).map(g=>({title:g("title"),org:g("organization"),loc:g("location"),type:g("type")||"Other",deadline:g("deadline"),url:g("url"),note:g("note")}));if(v.length)VAC=v}catch(e){}}
+ if(MAT_CSV){try{const m=(await grab(MAT_CSV)).map(g=>({title:g("title"),cat:g("category")||"Other",kind:g("type")||"Link",url:g("url"),desc:g("description")}));if(m.length)MAT=m}catch(e){}}
+ vac();mat();tab(location.hash.slice(1));
+}
+load();
+  ];
   
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
