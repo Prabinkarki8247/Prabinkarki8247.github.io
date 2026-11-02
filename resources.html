@@ -95,18 +95,10 @@ let VAC = [
 ];
 /* RESOURCE MATERIALS: cat = category chip, kind = Link or PDF.
    For your own PDFs, upload them to a folder named files in docs and use url:"files/my-document.pdf" */
-const MAT = [
- {title:"R for Data Science (2e)", cat:"Learning R", kind:"Link", url:"https://r4ds.hadley.nz", desc:"Free online book for learning data import, cleaning, visualisation and analysis in R."},
- {title:"The Epidemiologist R Handbook", cat:"Learning R", kind:"Link", url:"https://epirhandbook.com", desc:"Practical R guide for applied epidemiology and public health, free to read."},
- {title:"Quarto documentation", cat:"Learning R", kind:"Link", url:"https://quarto.org/docs/guide/", desc:"Guide to building reports, slides and websites from R code."},
- {title:"DHIS2 documentation", cat:"Health information systems", kind:"Link", url:"https://docs.dhis2.org", desc:"Official user and implementation guides for the DHIS2 platform."},
- {title:"KoboToolbox support center", cat:"Health information systems", kind:"Link", url:"https://support.kobotoolbox.org", desc:"How-to articles for building forms and collecting survey data."},
- {title:"GBD Results tool", cat:"Data and tools", kind:"Link", url:"https://vizhub.healthdata.org/gbd-results/", desc:"Explore Global Burden of Disease estimates by country, cause and risk."},
- {title:"OpenEpi", cat:"Data and tools", kind:"Link", url:"https://www.openepi.com", desc:"Free web-based calculators for common epidemiologic statistics."},
- {title:"Epidemiology and Disease Control Division", cat:"Nepal public health", kind:"Link", url:"https://edcd.gov.np", desc:"Official site of Nepal’s EDCD with notices, guidelines and reports."},
- {title:"Ministry of Health and Population", cat:"Nepal public health", kind:"Link", url:"https://mohp.gov.np", desc:"Official site with national health policies, plans and publications."}
+const MAT_CSV ="https://docs.google.com/spreadsheets/d/e/2PACX-1vTVsjpUwOQ9MeIoqpbZnZKxe-uSACQ6M1uohoNg0Rzg648ztQ4kPkhO59XyoHz6Vg/pub?gid=721912458&single=true&output=csv";
+let VAC = [
 ];
-
+  
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safe=u=>/^(https?:\/\/|files\/|[\w.\-\/]+\.(pdf|docx?|xlsx?))/i.test(u||"")?u:"";
