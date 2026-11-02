@@ -381,7 +381,31 @@ section {
   color: var(--mute);
   font-size: 0.9rem;
 }
+/* Work with me section */
+  
+.glow-button {
+    display: inline-block;
+    padding: 10px 22px;
+    color: white;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);
+    transition: all 0.3s ease;
+}
 
+.glow-button:hover {
+    color: white;
+    box-shadow:
+        0 0 10px rgba(59, 130, 246, 0.7),
+        0 0 25px rgba(124, 58, 237, 0.6),
+        0 0 40px rgba(124, 58, 237, 0.3);
+    transform: translateY(-3px);
+}
+  
 /* Footer */
 
 footer {
@@ -475,6 +499,7 @@ footer .wrap {
       <a href="#portfolio">Portfolio</a>
       <a href="cv.html">CV</a>
       <a href="resources.html">Resources</a>
+      <a href="work_with_me.html" class="glow-button">Work with me ✦</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
