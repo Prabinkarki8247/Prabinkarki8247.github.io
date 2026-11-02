@@ -636,12 +636,78 @@ footer .wrap {
   margin: 1rem 0;
 }
 
+
+/* Compact resource boxes — original design preserved */
+
 .resource-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.15rem;
-  margin: 1.5rem 0 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0.8rem 0 1.5rem;
 }
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0.85rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sig);
+  border-radius: 13px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(120, 209, 211, 0.45);
+}
+
+.resource-top {
+  margin-bottom: 0.5rem;
+  gap: 0.4rem;
+}
+
+.resource-card h3 {
+  font-size: 1.05rem;
+  margin: 0.15rem 0 0.4rem;
+}
+
+.resource-card p {
+  font-size: 0.88rem;
+  margin-bottom: 0.4rem;
+}
+
+.resource-org {
+  font-size: 0.84rem;
+  margin-bottom: 0.4rem;
+}
+
+.resource-foot {
+  padding-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.resource-btn {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 850px) {
+  .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
 
 .resource-card {
   display: flex;
